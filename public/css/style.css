@@ -1,0 +1,37 @@
+.content-insert{
+    margin-top: 100px;
+}
+
+.button-area {
+    margin-left: 2px;
+    margin-bottom: 20px;
+}
+
+.button-area ul li{
+    margin-right: 40px;
+    width: 120px;
+}
+
+.artist-details, .album-details, .track-details {
+    margin-top: 100px;
+}
+
+.track-details th {
+    font-size: 14px;
+}
+
+.track-details td {
+    font-size: 12px;
+}
+
+.url {
+	overflow: hidden;
+	max-width: 60px;
+	text-overflow: ellipsis;
+}
+
+.url-wide{
+	overflow: hidden;
+	max-width: 120px;
+	text-overflow: ellipsis;
+}
