@@ -44,7 +44,7 @@
                     <td>{{ $album->album_id }}</td>
                     <td>{{ $album->album_name }}</td>
                     <td>{{ $album->artist->artist_name }}</td>
-                    <td><div class="img" style="background-image: url('{{ asset($album->img_url) }}');"></div></td>
+                    <td><div class="img" style="background-image: url('{{ $album->img_url }}');"></div></td>
                     <td><a href="album/{{ $album->album_id }}" class="btn btn-default">Edit</a></td>
                     <td><a href="album/{{ $album->album_id }}/delete" class="btn btn-danger deleteItem">Delete</a></td>
                 </tr>

@@ -6,6 +6,8 @@
 /.idea
 /.vagrant
 /database/migrations
+/public/img
+/public/media
 Homestead.json
 Homestead.yaml
 npm-debug.log

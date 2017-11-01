@@ -58,7 +58,7 @@
                     <td>
                         @if($track->track_url != '')
                             <audio controls>
-                                <source src="{{ asset($track->track_url) }}" type="audio/mpeg">
+                                <source src="{{ $track->track_url }}" type="audio/mpeg">
                             </audio>
                         @else
                             There is no associated audio file for this track.
@@ -67,11 +67,11 @@
                     <td>{{ $track->vod }}</td>
                     <td>{{ $track->orang }}</td>
                     <td>{{ $track->etis }}</td>
-                    <td><div class="img track-img" style="background-image: url('{{ asset($track->img_url) }}');"></div></td>
+                    <td><div class="img track-img" style="background-image: url('{{ $track->img_url }}');"></div></td>
                     <td>
                         @if($track->ringtone_url != '')
                             <audio controls>
-                                <source src="{{ asset($track->ringtone_url) }}" type="audio/mpeg">
+                                <source src="{{ $track->ringtone_url }}" type="audio/mpeg">
                             </audio>
                             @else
                                 There is no associated ringtone for this track.
