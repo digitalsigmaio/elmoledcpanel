@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-group">
                     <label for="ringtone_url">Ringtone Upload</label>
-                    <input class="form-control" type="file" id="ringtone_url" name="ringtone_url" required>
+                    <input class="form-control" type="file" id="ringtone_url" name="ringtone_url">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Add Track</button>

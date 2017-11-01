@@ -107,5 +107,13 @@ class ArtistController extends Controller
         session()->flash('message', 'Artist has been updated');
         return view(route('editArtist', compact('artist')));
     }
+
+    public function artistAlbums(Request $request)
+    {
+
+        $artist = Artist::find($request->id);
+        $albums = $artist->albums;
+        return view('artistAlbumsList', compact('albums'));
+    }
 }
 

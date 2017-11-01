@@ -35,3 +35,20 @@
 	max-width: 120px;
 	text-overflow: ellipsis;
 }
+
+.img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-position: center center;
+}
+
+.track-img {
+    height: 50px;
+    width: 50px;
+}

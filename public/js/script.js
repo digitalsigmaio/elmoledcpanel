@@ -4,5 +4,14 @@ $(document).ready(function () {
        } else {
            return false;
        }
-   })
+   });
+
+    $('#artist_id').change( function(event) {
+        $.get(
+            'artistAlbums/',
+            { id: $('#artist_id').val() },
+        function(data) {
+            $('#album_id').html(data);
+        });
+    });
 });

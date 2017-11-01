@@ -28,6 +28,7 @@ Route::post('/artistSearch', 'ArtistController@search')->name('artistSearch');
 Route::get('/artist/{id}', 'ArtistController@editArtist');
 Route::post('/artist/{id}', 'ArtistController@update');
 Route::get('/artist/{id}/delete', 'ArtistController@delete');
+Route::get('/artistAlbums', 'ArtistController@artistAlbums');
 
 /* Album routes */
 Route::get('/albums', 'AlbumController@index')->name('albums');

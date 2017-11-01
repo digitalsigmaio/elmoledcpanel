@@ -31,16 +31,16 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Artist ID</th>
+                <th>Artist</th>
+                <th>Album</th>
                 <th>Track Name</th>
-                <th>Track URL</th>
+                <th>Track</th>
                 <th>Vodafone</th>
                 <th>Orange</th>
                 <th>Etisalat</th>
-                <th>Album ID</th>
-                <th>Image URL</th>
-                <th>Ringtone URL</th>
-                <th>Artist Name</th>
+                <th>Image</th>
+                <th>Ringtone</th>
+
                 <th>Edit</th>
                 <th>x</th>
             </tr>
@@ -49,16 +49,34 @@
             @foreach($tracks as $track)
                 <tr>
                     <td>{{ $track->id }}</td>
-                    <td>{{ $track->artist_id }}</td>
+                    <td>{{ $track->artist_name }}</td>
+                    @php
+                        $album = \App\Album::find($track->album_id);
+                    @endphp
+                    <td>{{ $album->album_name }}</td>
                     <td>{{ $track->track_name }}</td>
-                    <td class="url">{{ $track->track_url }}</td>
+                    <td>
+                        @if($track->track_url != '')
+                            <audio controls>
+                                <source src="{{ asset($track->track_url) }}" type="audio/mpeg">
+                            </audio>
+                        @else
+                            There is no associated audio file for this track.
+                        @endif
+                    </td>
                     <td>{{ $track->vod }}</td>
                     <td>{{ $track->orang }}</td>
                     <td>{{ $track->etis }}</td>
-                    <td>{{ $track->album_id }}</td>
-                    <td class="url">{{ $track->img_url }}</td>
-                    <td class="url">{{ $track->ringtone_url }}</td>
-                    <td>{{ $track->artist_name }}</td>
+                    <td><div class="img track-img" style="background-image: url('{{ asset($track->img_url) }}');"></div></td>
+                    <td>
+                        @if($track->ringtone_url != '')
+                            <audio controls>
+                                <source src="{{ asset($track->ringtone_url) }}" type="audio/mpeg">
+                            </audio>
+                            @else
+                                There is no associated ringtone for this track.
+                        @endif
+                    </td>
                     <td><a href="track/{{ $track->id }}" class="btn btn-default">Edit</a></td>
                     <td><a href="track/{{ $track->id }}/delete" class="btn btn-danger deleteItem">Delete</a></td>
                 </tr>

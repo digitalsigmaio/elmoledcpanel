@@ -32,7 +32,7 @@
             <tr>
                 <th>ID</th>
                 <th>Artist Name</th>
-                <th>Image URL</th>
+                <th>Image</th>
                 <th>Edit</th>
                 <th>x</th>
             </tr>
@@ -42,7 +42,7 @@
                 <tr>
                     <td>{{ $artist->id }}</td>
                     <td>{{ $artist->artist_name }}</td>
-                    <td>{{ $artist->img_url }}</td>
+                    <td><div class="img" style="background-image: url('{{ asset($artist->img_url) }}');"></div></td>
                     <td><a href="artist/{{ $artist->id }}" class="btn btn-default">Edit</a></td>
                     <td><a href="artist/{{ $artist->id }}/delete" class="btn btn-danger deleteItem">Delete</a></td>
                 </tr>
