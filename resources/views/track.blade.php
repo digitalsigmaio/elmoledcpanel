@@ -35,6 +35,7 @@
                 <div class="form-group">
                     <label for="artist_id">Artist</label>
                     <select name="artist_id" id="artist_id" class="form-control">
+                        <option value="" disabled selected>Select artist</option>
                         @if($artists)
                             @foreach($artists as $artist)
                                 <option value="{{ $artist->id }}">{{ $artist->artist_name }}</option>
@@ -45,11 +46,7 @@
                 <div class="form-group">
                     <label for="album_id">Album</label>
                     <select name="album_id" id="album_id" class="form-control">
-                        @if($albums)
-                            @foreach($albums as $album)
-                                <option value="{{ $album->album_id }}">{{ $album->album_name }}</option>
-                            @endforeach
-                        @endif
+                        <option value=""></option>
                     </select>
                 </div>
                 <div class="form-group">
