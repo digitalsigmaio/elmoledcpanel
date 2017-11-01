@@ -56,23 +56,25 @@
                     <td>{{ $album->album_name }}</td>
                     <td>{{ $track->track_name }}</td>
                     <td>
-                        @if($track->track_url != '')
-                            <audio controls>
-                                <source src="{{ $track->track_url }}" type="audio/mpeg">
-                            </audio>
-                        @else
-                            There is no associated audio file for this track.
-                        @endif
+
+                        <audio id="track-player" src="{{ $track->track_url }}" type="audio/mpeg"></audio>
+                        <div class="track-player">
+                            <span class="glyphicon glyphicon-play track-play"></span>
+                            <span class="glyphicon glyphicon-pause track-pause" style="display: none"></span>
+                        </div>
+
                     </td>
                     <td>{{ $track->vod }}</td>
                     <td>{{ $track->orang }}</td>
                     <td>{{ $track->etis }}</td>
                     <td><div class="img track-img" style="background-image: url('{{ $track->img_url }}');"></div></td>
                     <td>
-                        @if($track->ringtone_url != '')
-                            <audio controls>
-                                <source src="{{ $track->ringtone_url }}" type="audio/mpeg">
-                            </audio>
+                        @if($track->ringtone_url != null)
+                            <audio id="ringtone-player" src="{{ $track->ringtone_url }}" type="audio/mpeg"></audio>
+                            <div class="ringtone-player">
+                                <span class="glyphicon glyphicon-play ringtone-play"></span>
+                                <span class="glyphicon glyphicon-pause ringtone-pause" style="display: none"></span>
+                            </div>
                             @else
                                 There is no associated ringtone for this track.
                         @endif

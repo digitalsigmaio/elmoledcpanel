@@ -52,3 +52,11 @@
     height: 50px;
     width: 50px;
 }
+
+table th, table td {
+    text-align: center;
+}
+
+.track-player, .ringtone-player {
+    text-align: center;
+}
