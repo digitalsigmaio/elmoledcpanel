@@ -56,11 +56,10 @@
                     <td>{{ $album->album_name }}</td>
                     <td>{{ $track->track_name }}</td>
                     <td>
-
-                        <audio id="player" src="{{ $track->track_url }}" type="audio/mpeg"></audio>
-                        <div class="player">
+                        <div id="player">
                             <span class="glyphicon glyphicon-play play"></span>
                             <span class="glyphicon glyphicon-pause pause" style="display: none"></span>
+                            <audio class="player" src="{{ $track->track_url }}" type="audio/mpeg"></audio>
                         </div>
 
                     </td>
@@ -70,13 +69,13 @@
                     <td><div class="img track-img" style="background-image: url('{{ $track->img_url }}');"></div></td>
                     <td>
                         @if($track->ringtone_url != null)
-                            <audio id="player" src="{{ $track->ringtone_url }}" type="audio/mpeg"></audio>
-                            <div class="player">
+                            <div id="player">
                                 <span class="glyphicon glyphicon-play play"></span>
                                 <span class="glyphicon glyphicon-pause pause" style="display: none"></span>
+                                <audio class="player" src="{{ $track->ringtone_url }}" type="audio/mpeg"></audio>
                             </div>
-                            @else
-                                There is no associated ringtone for this track.
+                        @else
+                            There is no associated ringtone for this track.
                         @endif
                     </td>
                     <td><a href="track/{{ $track->id }}" class="btn btn-default">Edit</a></td>

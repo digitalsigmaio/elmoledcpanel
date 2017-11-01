@@ -19,7 +19,8 @@ $(document).ready(function () {
         $this = $(this);
         $this.hide();
         $this.next('.pause').show();
-        $('#player').get(0).play();
+
+        $this.closest('#player').find('.player').get(0).play();
     });
 
 
@@ -27,7 +28,7 @@ $(document).ready(function () {
         $this = $(this);
         $this.hide();
         $this.prev('.play').show();
-        $('#player').get(0).pause();
+        $this.closest('#player').find('.player').get(0).pause();
     });
 
 });
