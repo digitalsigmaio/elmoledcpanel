@@ -65,7 +65,7 @@
                     <td>{{ $track->vod }}</td>
                     <td>{{ $track->orang }}</td>
                     <td>{{ $track->etis }}</td>
-                    <td><div class="img track-img" style="background-image: url('{{ $track->img_url }}');"></div></td>
+                    <td><div class="img track-img" style="background-image: url('{{ $track->img_url == '' ? 'img/default.jpg' : $track->img_url }}');"></div></td>
                     <td>
                         @if($track->ringtone_url != null)
                             <div id="player">
