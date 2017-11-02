@@ -20,7 +20,7 @@ class ArtistController extends Controller
 
     public function store(Request $request)
     {
-        $root = 'http://' . $_SERVER['SERVER_NAME'] . ':89/test/public';
+        $root = 'http://' . $_SERVER['SERVER_NAME'] . ':89/elmoledcpanel/public';
         $this->validate($request, [
            'artist_name' => 'required'
         ]);
@@ -97,7 +97,7 @@ class ArtistController extends Controller
         $artist = Artist::find($request->id);
         $artist->artist_name = $request->artist_name;
         if ($request->hasFile('img_url')){
-            $root = 'http://' . $_SERVER['SERVER_NAME'] . ':89/test/public';
+            $root = 'http://' . $_SERVER['SERVER_NAME'] . ':89/elmoledcpanel/public';
             $file = $request->file('img_url');
             $destinationPath = 'img/artist';
             $file->move($destinationPath, $file->getClientOriginalName());
