@@ -61,3 +61,7 @@ Route::post('/login', 'UserController@signin')->name('signin');
 Route::post('register', 'UserController@store')->name('signup');
 
 Route::get('logout', 'UserController@logout')->name('logout');
+
+Route::get('/test', function () {
+    return view('testRoot');
+});

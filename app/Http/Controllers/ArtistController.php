@@ -20,6 +20,7 @@ class ArtistController extends Controller
 
     public function store(Request $request)
     {
+        $root = 'http://' . $_SERVER['SERVER_NAME'] . ':89';
         $this->validate($request, [
            'artist_name' => 'required'
         ]);
@@ -34,7 +35,7 @@ class ArtistController extends Controller
             $file = $request->file('img_url');
             $destinationPath = 'img/artist';
             $file->move($destinationPath, $file->getClientOriginalName());
-            $uri = $destinationPath . '/' . $file->getClientOriginalName();
+            $uri = $root . '/' .$destinationPath . '/' . $file->getClientOriginalName();
 
             $artist = new Artist;
             $artist->artist_name = $request->input('artist_name');
