@@ -6,7 +6,7 @@
             <h3>Edit Album</h3>
         </div>
         <div class="row">
-            <form action="album/{{ $album->album_id }}" method="post" enctype="multipart/form-data">
+            <form action="{{ $album->album_id }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="album_id" value="{{ $album->album_id }}">
                 <div class="form-group">

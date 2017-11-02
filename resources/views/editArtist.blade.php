@@ -6,7 +6,7 @@
             <h3>Edit Artist</h3>
         </div>
         <div class="row">
-            <form action="artist/{{ $artist->id }}" method="post" enctype="multipart/form-data">
+            <form action="{{ $artist->id }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $artist->id }}">
                 <div class="form-group">

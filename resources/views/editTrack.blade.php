@@ -26,7 +26,7 @@
             <h3>Edit Track</h3>
         </div>
         <div class="row">
-            <form action="track/{{ $track->id }}" method="post" enctype="multipart/form-data">
+            <form action="{{ $track->id }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $track->id }}"> <div class="form-group">
                     <label for="track_name">Track Name</label>
@@ -66,15 +66,15 @@
                 </div>
                 <div class="form-group">
                     <label for="img_url">Image Upload</label>
-                    <input class="form-control" type="file" id="img_url" name="img_url" required>
+                    <input class="form-control" type="file" id="img_url" name="img_url" >
                 </div>
                 <div class="form-group">
                     <label for="track_url">Track Upload</label>
-                    <input class="form-control" type="file" id="track_url" name="track_url" required>
+                    <input class="form-control" type="file" id="track_url" name="track_url" >
                 </div>
                 <div class="form-group">
                     <label for="ringtone_url">Ringtone Upload</label>
-                    <input class="form-control" type="file" id="ringtone_url" name="ringtone_url" required>
+                    <input class="form-control" type="file" id="ringtone_url" name="ringtone_url" >
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Edit Track</button>

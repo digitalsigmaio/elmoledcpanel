@@ -175,6 +175,6 @@ class TrackController extends Controller
         $track->save();
 
         session()->flash('message', 'Track has been updated');
-        return view('editTrack', compact('Track'));
+        return redirect()->back();
     }
 }

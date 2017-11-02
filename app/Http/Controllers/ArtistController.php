@@ -106,7 +106,7 @@ class ArtistController extends Controller
         $artist->save();
 
         session()->flash('message', 'Artist has been updated');
-        return view(route('editArtist', compact('artist')));
+        return redirect()->back();
     }
 
     public function artistAlbums(Request $request)

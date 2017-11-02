@@ -119,6 +119,6 @@ class AlbumController extends Controller
         $album->save();
 
         session()->flash('message', 'Album has been updated');
-        return view('editAlbum', compact('album'));
+        return redirect()->back();
     }
 }
