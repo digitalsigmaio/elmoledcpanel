@@ -9,22 +9,14 @@
                     <li><a href="artist" class="btn btn-primary">New Artist</a></li>
                 </ul>
             </div>
-            <div id="imaginary_container">
-                <form action="{{ route('artistSearch') }}" method="post">
-                    {{ csrf_field() }}
-                <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" name="search">
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+            <div id="row" class="search-area">
+                <div class="form-group">
+                    <input type="search" class="form-control"  placeholder="Search" id="artistSearch">
                 </div>
-                </form>
             </div>
         </div>
     </div>
-    <div class="row artist-details" id="artistDetails">
+    <div class="row artist-details" id="list">
         @if(count($artists) > 0)
         <hr>
         <table class="table table-striped table-hover ">

@@ -9,20 +9,19 @@
                     <li><a href="track" class="btn btn-primary">New Track</a></li>
                 </ul>
             </div>
-            <div id="imaginary_container">
-                <form action="{{ route('trackSearch') }}" method="post">
-                    {{ csrf_field() }}
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control"  placeholder="Search" name="search">
-                        <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
+            <div id="row" class="search-area">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <select name="category" id="category">
+                            <option value="0">Artist</option>
+                            <option value="1">Album</option>
+                            <option value="2">Track</option>
+                        </select>
                     </span>
-                    </div>
-                </form>
+                    <input type="search" class="form-control"  placeholder="Search" id="trackSearch">
+                </div>
             </div>
         </div>
     </div>
-    <div class="row" id="trackDetails"></div>
+    <div class="row" id="list"></div>
 @endsection

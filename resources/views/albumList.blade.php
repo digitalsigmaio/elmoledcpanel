@@ -9,22 +9,20 @@
                     <li><a href="album" class="btn btn-primary">New Album</a></li>
                 </ul>
             </div>
-            <div id="imaginary_container">
-                <form action="{{ route('albumSearch') }}" method="post">
-                    {{ csrf_field() }}
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control"  placeholder="Search" name="search">
-                        <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
+            <div id="row" class="search-area">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <select name="category" id="category">
+                            <option value="0">Artist</option>
+                            <option value="1">Album</option>
+                        </select>
                     </span>
-                    </div>
-                </form>
+                    <input type="search" class="form-control"  placeholder="Search" id="albumSearch">
+                </div>
             </div>
         </div>
     </div>
-    <div class="row album-details" id="albumDetails">
+    <div class="row album-details" id="list">
         @if(count($albums) > 0)
         <hr>
         <table class="table table-striped table-hover ">
@@ -53,7 +51,7 @@
         </table>
 		{{ $albums->links() }}
         @else
-            <h4>Thier is no Album in the record yet</h4>
+            <h4>Their is no Album in the record yet</h4>
         @endif
     </div>
 @endsection

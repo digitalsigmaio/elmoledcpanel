@@ -21,6 +21,7 @@ class TrackController extends Controller
     }
 
     public function store(Request $request)
+
     {
         $this->validate($request, [
             'track_name' => 'required'
@@ -82,15 +83,33 @@ class TrackController extends Controller
 
     public function trackList()
     {
-        $tracks = Track::paginate(20);
+        $tracks = Track::orderBy('id', 'desc')->paginate(20);
         return view('trackList', compact('tracks'));
     }
 
     public function search(Request $request)
     {
-        $tracks = Track::where('track_name', 'like', '%'.$request->search.'%')->get();
+        $category = $request->category;
+        $search = $request->search;
+        switch ($category){
+            case 0:
+                $tracks = Track::where('artist_name', 'like', "%$search%")->get();
+                return view('TrackSearchList', compact('tracks'));
+            case 1:
+                $album = Album::where('album_name', 'like', "%$search%")->first();
+                if (count($album) > 0){
+                    $tracks = Track::where('album_id', $album->album_id)->get();
+                } else {
+                    $tracks = null;
+                }
+                return view('trackSearchList', compact('tracks'));
+            case 2:
+                $tracks = Track::where('track_name', 'like', "%$search%")->get();
 
-        return view('trackList', compact('tracks'));
+                return view('trackSearchList', compact('tracks'));
+            default:
+                return false;
+        }
     }
 
     public function newTrack()

@@ -49,15 +49,16 @@ class ArtistController extends Controller
 
     public function artistList()
     {
-        $artists = Artist::paginate(20);
+        $artists = Artist::orderBy('id', 'desc')->paginate(20);
         return view('artistList', compact('artists'));
     }
 
     public function search(Request $request)
     {
-        $artists = Artist::where('artist_name', 'like', '%'.$request->search.'%')->get();
+        $search = $request->search;
+        $artists = Artist::where('artist_name', 'like', "%$search%")->get();
 
-        return view('artistList', compact('artists'));
+        return view('artistSearchList', compact('artists'));
     }
 
     public function newArtist()

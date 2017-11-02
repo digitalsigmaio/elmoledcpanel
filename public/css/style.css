@@ -60,3 +60,8 @@ table th, table td {
 .track-player, .ringtone-player {
     text-align: center;
 }
+
+.search-area span, .search-area select {
+    border: none;
+}
+

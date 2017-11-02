@@ -53,15 +53,26 @@ class AlbumController extends Controller
 
     public function albumList()
     {
-        $albums = Album::paginate(20);
+        $albums = Album::orderBy('album_id', 'desc')->paginate(20);
         return view('albumList', compact('albums'));
     }
 
     public function search(Request $request)
     {
-        $albums = Album::where('album_name', 'like', '%'.$request->search.'%')->get();
+        $category = $request->category;
+        $search = $request->search;
+        switch ($category){
+            case 0:
+                $artist = Artist::where('artist_name', 'like', "%$search%")->first();
+                $albums = Album::where('artist_id', $artist->id)->get();
+                return view('albumSearchList', compact('albums'));
+            case 1:
+                $albums = Album::where('album_name', 'like', "%$search%")->get();
 
-        return view('albumList', compact('albums'));
+                return view('albumSearchList', compact('albums'));
+            default:
+                return false;
+        }
     }
 
     public function newAlbum()
